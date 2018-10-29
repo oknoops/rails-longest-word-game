@@ -1,0 +1,16 @@
+<div class = "container">
+  <h1>Play the game!</h1>
+  <div class = "letters">
+    <% @letters.each do |letter| %>
+      <div class = "letter"><%=letter%></div>
+    <%end%>
+  </div>
+
+  <form action="/score" method = "post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <label for="word">Type in a word with the letters above:</label><br>
+    <input type="text", name = "word", class = "word">
+    <%= hidden_field_tag 'letters', @letters %>
+    <input type="submit" value = "Submit word!" class = "button">
+  </form>
+</div>
